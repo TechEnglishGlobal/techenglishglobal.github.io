@@ -63,5 +63,57 @@
     <footer class="py-10 text-center text-gray-500 text-sm">
         &copy; 2026 DevLingoGlobal. Fully Anonymous. International Access.
     </footer>
+    <!-- Payment Button -->
+<div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
+    <button id="openPaymentBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 cursor-pointer">
+        Get Instant Access
+    </button>
+</div>
+
+<!-- Payment Modal -->
+<div id="paymentModal" style="display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
+    <div style="background-color: white; padding: 30px; border-radius: 15px; text-align: center; max-width: 500px; color: #333; font-family: sans-serif; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+        <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 15px;">Unlock the Course</h2>
+        <p style="margin-bottom: 15px;">Please send the payment in Monero (XMR) to this address:</p>
+        
+        <!-- REPLACE THIS WITH YOUR ACTUAL MONERO ADDRESS -->
+        <div style="background: #f4f4f4; padding: 15px; word-break: break-all; font-family: monospace; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; font-size: 14px;">41jnrYTbpre6TmwgEL6XEyJ3gNQxtczvmXCv3KGRjZWqhpFASQBREVAhnCoSJiV696HJH1a7xUWBT5d9u5wfMDT9Ufs2XPa 
+        </div>
+
+        <p style="margin-bottom: 10px;">Enter your <b>Transaction ID (TxID)</b>:</p>h
+        <input type="text" id="txidInput" placeholder="Paste TxID here..." style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;">
+        
+        <div style="display: flex; gap: 10px; justify-content: center;">
+            <button id="verifyBtn" style="padding: 12px 24px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                Verify Payment
+            </button>
+            <button id="closeBtn" style="padding: 12px 24px; background-color: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Logic to handle the popup -->
+<script>
+    const modal = document.getElementById("paymentModal");
+    const openBtn = document.getElementById("openPaymentBtn");
+    const closeBtn = document.getElementById("closeBtn");
+
+    openBtn.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>
