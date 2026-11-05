@@ -3,112 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevLingoGlobal | Professional Tech English</title>
+    <title>DevLingoGlobal | The Professional Tech English Toolkit</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0A192F; color: #CCD6F6; scroll-behavior: smooth; }
-        .accent-text { color: #64FFDA; }
-        .btn-primary { 
-            background-color: transparent; 
-            border: 2px solid #64FFDA; 
-            color: #64FFDA; 
-            transition: 0.3s; 
+        :root {
+            --bg-dark: #0A192F;
+            --bg-card: #112240;
+            --accent: #64FFDA;
+            --text-main: #CCD6F6;
+            --text-dim: #8892B0;
         }
-        .btn-primary:hover { background-color: rgba(100, 255, 218, 0.1); }
+        body { background-color: var(--bg-dark); color: var(--text-main); scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+        .accent-text { color: var(--accent); }
+        .btn-premium { 
+            background-color: transparent; 
+            border: 2px solid var(--accent); 
+            color: var(--accent); 
+            transition: all 0.3s ease; 
+        }
+        .btn-premium:hover { background-color: rgba(100, 255, 218, 0.1); transform: translateY(-2px); }
         
-        /* Modal Styling to match Theme */
         #paymentModal {
             display: none;
             position: fixed;
             z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(2, 12, 27, 0.9);
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
+            left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(2, 12, 27, 0.95);
+            justify-content: center; align-items: center;
+            backdrop-filter: blur(8px);
         }
         .modal-content {
-            background-color: #112240;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 500px;
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
             width: 90%;
-            color: #CCD6F6;
-            font-family: sans-serif;
-            border: 1px solid #64FFDA;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
+        .hidden-content { display: none; }
     </style>
 </head>
-<body class="font-sans">
+<body>
+
+    <!-- Navigation -->
     <nav class="p-6 flex justify-between items-center max-w-6xl mx-auto">
-        <div class="text-2xl font-bold accent-text">DevLingoGlobal</div>
+        <div class="text-2xl font-bold accent-text tracking-tighter">DevLingoGlobal</div>
+        <div class="hidden md:block text-sm text-gray-400">Professional Communication for Tech Leaders</div>
     </nav>
 
-    <section class="flex flex-col items-center justify-center text-center px-4 py-20 max-w-4xl mx-auto">
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center text-center px-4 py-24 max-w-4xl mx-auto">
+        <span class="text-sm uppercase tracking-widest accent-text font-bold mb-4">The Gold Standard for Tech English</span>
         <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-            The <span class="accent-text">Unofficial Guide</span> to Professional Tech English.
+            Stop Being the <span class="accent-text">Quiet Person</span> in the Meeting.
         </h1>
-        <p class="text-lg md:text-xl text-gray-400 mb-10">
-            Stop feeling invisible in meetings. Master the communication protocols used by the top 1% of Engineers, Designers, and QA Experts worldwide.
+        <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl">
+            Master the linguistic protocols used by Senior Engineers and Lead Designers at top global firms. Upgrade your professional presence and unlock higher-paying opportunities.
         </p>
-        <button class="btn-primary px-8 py-4 rounded-md font-bold text-lg uppercase tracking-widest open-payment-trigger">
+        <button class="btn-premium px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest open-payment-trigger">
             Get Instant Access
         </button>
     </section>
 
-    <section id="pricing" class="py-20 px-4 max-w-6xl mx-auto">
+    <!-- Value Proposition -->
+    <section class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">The Professional Toolkit</h2>
+            <p class="text-gray-400">Everything you need to communicate with authority and precision.</p>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- IT Card -->
-            <div class="bg-[#112240] p-8 rounded-lg border border-gray-700 hover:border-cyan-400 transition">
-                <h3 class="text-2xl font-bold mb-4 accent-text">For IT/Devs</h3>
-                <p class="text-gray-400 mb-6">Master Sprint Planning, Technical Documentation, and Stakeholder communication.</p>
-                <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
+            <div class="bg-[#112240] p-8 rounded-2xl border border-gray-700 hover:border-cyan-400 transition group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">💬</div>
+                <h3 class="text-2xl font-bold mb-4 accent-text">The Translation Matrix</h3>
+                <p class="text-gray-400">Convert "clumsy" English into Senior-level professional phrases instantly.</p>
             </div>
-            <!-- Design Card -->
-            <div class="bg-[#112240] p-8 rounded-lg border border-gray-700 hover:border-cyan-400 transition">
-                <h3 class="text-2xl font-bold mb-4 accent-text">For Designers</h3>
-                <p class="text-gray-400 mb-6">Present design rationales, master UX terminology, and collaborate with devs.</p>
-                <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
+            <div class="bg-[#112240] p-8 rounded-2xl border border-gray-700 hover:border-cyan-400 transition group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">📜</div>
+                <h3 class="text-2xl font-bold mb-4 accent-text">Situation Scripts</h3>
+                <p class="text-gray-400">Ready-to-use templates for salary negotiations, bug reports, and sprint demos.</p>
             </div>
-            <!-- QA Card -->
-            <div class="bg-[#112240] p-8 rounded-lg border border-gray-700 hover:border-cyan-400 transition">
-                <h3 class="text-2xl font-bold mb-4 accent-text">For QA Engineers</h3>
-                <p class="text-gray-400 mb-6">Write flawless bug reports and communicate regressions diplomatically.</p>
-                <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
+            <div class="bg-[#112240] p-8 rounded-2xl border border-gray-700 hover:border-cyan-400 transition group">
+                <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">💎</div>
+                <h3 class="text-2xl font-bold mb-4 accent-text">Industry Vocabulary</h3>
+                <p class="text-gray-400">The exact terminology that signals expertise to stakeholders and managers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content (HIDDEN BY DEFAULT) -->
+    <section id="courseContent" class="hidden-content py-20 px-4 max-w-5xl mx-auto">
+        <div class="bg-[#112240] p-10 rounded-3xl border-2 border-green-400 shadow-2xl">
+            <h2 class="text-4xl font-bold mb-8 text-center accent-text">Welcome to the Inner Circle</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold border-b border-gray-600 pb-2">🛠 The Translation Matrix</h3>
+                    <p class="text-gray-300 italic">"I don't know why it's broken" $\rightarrow$ "We are currently investigating the root cause of the regression."</p>
+                    <p class="text-gray-300 italic">"This is a bad idea" $\rightarrow$ "I have some concerns regarding the scalability of this approach."</p>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold border-b border-gray-600 pb-2">🚀 Senior Scripts</h3>
+                    <p class="text-gray-300"><strong>Negotiating a Deadline:</strong> "Given the current scope, to ensure the quality of the deliverable, I propose adjusting the timeline by 3 days."</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="py-10 text-center text-gray-500 text-sm">
-        &copy; 2026 DevLingoGlobal. Fully Anonymous. International Access.
+        &copy; 2026 DevLingoGlobal. Fully Anonymous. Encrypted Access.
     </footer>
 
     <!-- Payment Modal -->
     <div id="paymentModal">
-        <div class="modal-content">
-            <h2 class="text-2xl font-bold mb-4 accent-text">Unlock the Course</h2>
-            <p class="mb-4">Please send the payment in Monero (XMR) to this address:</p>
+        <div class="modal-content text-center">
+            <h2 class="text-3xl font-bold mb-4 accent-text">Unlock the Full Toolkit</h2>
+            <p class="mb-6 text-gray-300">One-time payment for lifetime access to the Professional English System.</p>
             
-            <div class="bg-[#0A192F] p-4 break-all font-mono border border-gray-600 rounded-lg mb-6 text-sm">
-                41jnrYTbpre6TmwgEL6XEyJ3gNQxtczvmXCv3KGRjZWqhpFASQBREVAhnCoSJiV696HJH1a7xUWBT5d9u5wfMDT9Ufs2XPa
+            <!-- Value Checklist -->
+            <div class="text-left bg-[#0A192F] p-6 rounded-xl mb-6 text-sm space-y-2 border border-gray-700">
+                <div class="flex items-center">✅ Translation Matrix (Clumsy $\rightarrow$ Professional)</div>
+                <div class="flex items-center">✅ High-Stake Meeting Scripts</div>
+                <div class="flex items-center">✅ The Tech-Lead Vocabulary Vault</div>
+                <div class="flex items-center">✅ Lifetime Updates & Anonymous Access</div>
             </div>
 
-            <p class="mb-2">Enter your <b>Transaction ID (TxID)</b>:</p>
-            <input type="text" id="txidInput" placeholder="Paste TxID here..." class="w-full p-3 mb-6 bg-[#0A192F] border border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400">
+            <div class="text-xl font-bold mb-2">Price: <span id="displayPrice">0.3 XMR</span></div>
+            <p class="text-sm text-gray-400 mb-4">Send Monero (XMR) to the address below:</p>
+            
+            <div id="walletAddress" class="bg-[#0A192F] p-4 break-all font-mono border border-cyan-400 rounded-lg mb-6 text-sm text-cyan-300">
+                INSERT_YOUR_XMR_ADDRESS_HERE
+            </div>
+
+            <input type="text" id="txidInput" placeholder="Paste Transaction ID (TxID) here..." class="w-full p-3 mb-6 bg-[#0A192F] border border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400">
             
             <div class="flex gap-4 justify-center">
-                <button id="verifyBtn" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition">
-                    Verify Payment
+                <button id="verifyBtn" class="px-8 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition">
+                    Verify & Unlock
                 </button>
-                <button id="closeBtn" class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition">
+                <button id="closeBtn" class="px-8 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-bold transition">
                     Cancel
                 </button>
             </div>
@@ -116,35 +148,80 @@
     </div>
 
     <script>
+        /** 
+         * CONFIGURATION SETTINGS
+         * Change these values to update the site without touching the logic
+         */
+        const SETTINGS = {
+            walletAddress: "INSERT_YOUR_XMR_ADDRESS_HERE", // Put your actual Monero address here
+            price: "0.3", // Price in XMR
+            currency: "XMR",
+            courseId: "devlingo_premium_2026" // Unique ID for localStorage
+        };
+
+        // Initialize Settings
+        document.getElementById('walletAddress').innerText = SETTINGS.walletAddress;
+        document.getElementById('displayPrice').innerText = `${SETTINGS.price} ${SETTINGS.currency}`;
+
         const modal = document.getElementById("paymentModal");
         const closeBtn = document.getElementById("closeBtn");
         const triggers = document.querySelectorAll(".open-payment-trigger");
+        const contentSection = document.getElementById("courseContent");
 
-        // Open modal for any button with the trigger class
+        // Modal Logic
         triggers.forEach(btn => {
-            btn.onclick = function() {
-                modal.style.display = "flex";
-            }
+            btn.onclick = () => modal.style.display = "flex";
         });
 
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
+        closeBtn.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => { if(e.target == modal) modal.style.display = "none"; };
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+        // Check for existing access on load
+        window.onload = () => {
+            if(localStorage.getItem(SETTINGS.courseId) === "unlocked") {
+                unlockCourse();
             }
+        };
+
+        function unlockCourse() {
+            modal.style.display = "none";
+            contentSection.style.display = "block";
+            document.querySelector('section.flex').style.display = "none"; // Hide hero
+            document.querySelector('#pricing').style.display = "none"; // Hide pricing
+            window.scrollTo(0, 0);
         }
 
-        // Verification Placeholder
-        document.getElementById("verifyBtn").onclick = function() {
-            const txid = document.getElementById("txidInput").value;
+        // Verification Logic
+        document.getElementById("verifyBtn").onclick = async function() {
+            const txid = document.getElementById("txidInput").value.trim();
+            
             if(!txid) {
-                alert("Please enter a TxID");
+                alert("Please enter a valid Transaction ID.");
                 return;
             }
-            alert("Verifying TxID: " + txid + "\n(Blockchain API logic will be integrated here)");
+
+            this.innerText = "Verifying...";
+            this.disabled = true;
+
+            try {
+                // Using a public Monero API to verify TxID
+                // Note: In a real production environment, you would use a specific node.
+                const response = await fetch(`https://monero-blockchain.info/tx/${txid}`);
+                
+                if(response.ok) {
+                    // For the "Passive/Anonymous" model, we check if the TxID exists.
+                    // Fully verifying amount requires parsing the JSON response.
+                    localStorage.setItem(SETTINGS.courseId, "unlocked");
+                    unlockCourse();
+                } else {
+                    alert("Payment not found. Please ensure the transaction is confirmed on the blockchain.");
+                }
+            } catch (error) {
+                alert("Verification server error. Please try again in a few minutes.");
+            } finally {
+                this.innerText = "Verify & Unlock";
+                this.disabled = false;
+            }
         };
     </script>
 </body>
