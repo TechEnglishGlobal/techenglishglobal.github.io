@@ -6,7 +6,7 @@
     <title>DevLingoGlobal | Professional Tech English</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0A192F; color: #CCD6F6; }
+        body { background-color: #0A192F; color: #CCD6F6; scroll-behavior: smooth; }
         .accent-text { color: #64FFDA; }
         .btn-primary { 
             background-color: transparent; 
@@ -15,6 +15,33 @@
             transition: 0.3s; 
         }
         .btn-primary:hover { background-color: rgba(100, 255, 218, 0.1); }
+        
+        /* Modal Styling to match Theme */
+        #paymentModal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(2, 12, 27, 0.9);
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #112240;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            color: #CCD6F6;
+            font-family: sans-serif;
+            border: 1px solid #64FFDA;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -29,9 +56,9 @@
         <p class="text-lg md:text-xl text-gray-400 mb-10">
             Stop feeling invisible in meetings. Master the communication protocols used by the top 1% of Engineers, Designers, and QA Experts worldwide.
         </p>
-        <a href="#pricing" class="btn-primary px-8 py-4 rounded-md font-bold text-lg uppercase tracking-widest">
+        <button class="btn-primary px-8 py-4 rounded-md font-bold text-lg uppercase tracking-widest open-payment-trigger">
             Get Instant Access
-        </a>
+        </button>
     </section>
 
     <section id="pricing" class="py-20 px-4 max-w-6xl mx-auto">
@@ -41,21 +68,21 @@
                 <h3 class="text-2xl font-bold mb-4 accent-text">For IT/Devs</h3>
                 <p class="text-gray-400 mb-6">Master Sprint Planning, Technical Documentation, and Stakeholder communication.</p>
                 <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold">Enroll Now</button>
+                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
             </div>
             <!-- Design Card -->
             <div class="bg-[#112240] p-8 rounded-lg border border-gray-700 hover:border-cyan-400 transition">
                 <h3 class="text-2xl font-bold mb-4 accent-text">For Designers</h3>
                 <p class="text-gray-400 mb-6">Present design rationales, master UX terminology, and collaborate with devs.</p>
                 <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold">Enroll Now</button>
+                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
             </div>
             <!-- QA Card -->
             <div class="bg-[#112240] p-8 rounded-lg border border-gray-700 hover:border-cyan-400 transition">
                 <h3 class="text-2xl font-bold mb-4 accent-text">For QA Engineers</h3>
                 <p class="text-gray-400 mb-6">Write flawless bug reports and communicate regressions diplomatically.</p>
                 <div class="text-3xl font-bold mb-6">Crypto Payment</div>
-                <button class="w-full btn-primary py-3 rounded font-bold">Enroll Now</button>
+                <button class="w-full btn-primary py-3 rounded font-bold open-payment-trigger">Enroll Now</button>
             </div>
         </div>
     </section>
@@ -63,61 +90,62 @@
     <footer class="py-10 text-center text-gray-500 text-sm">
         &copy; 2026 DevLingoGlobal. Fully Anonymous. International Access.
     </footer>
-    <!-- Payment Button -->
-<div style="text-align: center; margin-top: 50px; margin-bottom: 50px;">
-    <button id="openPaymentBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 cursor-pointer">
-        Get Instant Access
-    </button>
-</div>
 
-<!-- Payment Modal -->
-<div id="paymentModal" style="display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center;">
-    <div style="background-color: white; padding: 30px; border-radius: 15px; text-align: center; max-width: 500px; color: #333; font-family: sans-serif; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-        <h2 style="font-size: 24px; font-weight: bold; margin-bottom: 15px;">Unlock the Course</h2>
-        <p style="margin-bottom: 15px;">Please send the payment in Monero (XMR) to this address:</p>
-        
-        <!-- REPLACE THIS WITH YOUR ACTUAL MONERO ADDRESS -->
-        <div style="background: #f4f4f4; padding: 15px; word-break: break-all; font-family: monospace; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; font-size: 14px;">41jnrYTbpre6TmwgEL6XEyJ3gNQxtczvmXCv3KGRjZWqhpFASQBREVAhnCoSJiV696HJH1a7xUWBT5d9u5wfMDT9Ufs2XPa 
-        </div>
+    <!-- Payment Modal -->
+    <div id="paymentModal">
+        <div class="modal-content">
+            <h2 class="text-2xl font-bold mb-4 accent-text">Unlock the Course</h2>
+            <p class="mb-4">Please send the payment in Monero (XMR) to this address:</p>
+            
+            <div class="bg-[#0A192F] p-4 break-all font-mono border border-gray-600 rounded-lg mb-6 text-sm">
+                41jnrYTbpre6TmwgEL6XEyJ3gNQxtczvmXCv3KGRjZWqhpFASQBREVAhnCoSJiV696HJH1a7xUWBT5d9u5wfMDT9Ufs2XPa
+            </div>
 
-        <p style="margin-bottom: 10px;">Enter your <b>Transaction ID (TxID)</b>:</p>
-        <input type="text" id="txidInput" placeholder="Paste TxID here..." style="width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;">
-        
-        <div style="display: flex; gap: 10px; justify-content: center;">
-            <button id="verifyBtn" style="padding: 12px 24px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-                Verify Payment
-            </button>
-            <button id="closeBtn" style="padding: 12px 24px; background-color: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
-                Cancel
-            </button>
+            <p class="mb-2">Enter your <b>Transaction ID (TxID)</b>:</p>
+            <input type="text" id="txidInput" placeholder="Paste TxID here..." class="w-full p-3 mb-6 bg-[#0A192F] border border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400">
+            
+            <div class="flex gap-4 justify-center">
+                <button id="verifyBtn" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-bold transition">
+                    Verify Payment
+                </button>
+                <button id="closeBtn" class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold transition">
+                    Cancel
+                </button>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Logic to handle the popup -->
-<script>
-    const modal = document.getElementById("paymentModal");
-    const openBtn = document.getElementById("openPaymentBtn");
-    const closeBtn = document.getElementById("closeBtn");
+    <script>
+        const modal = document.getElementById("paymentModal");
+        const closeBtn = document.getElementById("closeBtn");
+        const triggers = document.querySelectorAll(".open-payment-trigger");
 
-    openBtn.onclick = function() {
-        modal.style.display = "flex";
-    }
+        // Open modal for any button with the trigger class
+        triggers.forEach(btn => {
+            btn.onclick = function() {
+                modal.style.display = "flex";
+            }
+        });
 
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
+        closeBtn.onclick = function() {
             modal.style.display = "none";
         }
-    }
-</script>
-    <div style="text-align: center; margin: 40px 0;">
-    <button id="openPaymentBtn" style="padding: 15px 30px; background-color: #007bff; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">Get Instant Access</button>
-</div>
 
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
 
+        // Verification Placeholder
+        document.getElementById("verifyBtn").onclick = function() {
+            const txid = document.getElementById("txidInput").value;
+            if(!txid) {
+                alert("Please enter a TxID");
+                return;
+            }
+            alert("Verifying TxID: " + txid + "\n(Blockchain API logic will be integrated here)");
+        };
+    </script>
 </body>
 </html>
